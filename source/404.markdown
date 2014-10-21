@@ -1,0 +1,6 @@
+---
+layout: page
+title: I'm so sorry...........
+footer: true
+permalink: /404.html
+---
