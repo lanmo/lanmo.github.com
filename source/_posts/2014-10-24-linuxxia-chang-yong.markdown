@@ -25,3 +25,7 @@ categories:
 			将zsh设置为默认的Shell：
 			chsh -s /bin/zsh
 			重启终端或者输入source .zshrc即可使用
+####4、ssh相关
+		1、公钥拷贝到某一台主机上`ssh-copy-id user@ip`
+		2、sockets代理和隧道转发技术`ssh -f -N -g -D 8898 user@host`
+			
