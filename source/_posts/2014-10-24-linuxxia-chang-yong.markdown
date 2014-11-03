@@ -28,4 +28,11 @@ categories:
 ####4、ssh相关
 		1、公钥拷贝到某一台主机上`ssh-copy-id user@ip`
 		2、sockets代理和隧道转发技术`ssh -f -N -g -D 8898 user@host`
+		3、配合上面语句使用保持心跳，`/etc/ssh/ssh_config`，这个文件加这两行:
+			TCPKeepAlive yes  
+			ServerAliveInterval 60
+####5、AWK使用，这个命令平时很少使用，想到什么就写什么吧
+		1、获取进程PID: 
+			bash: `ps -ef | grep [n]ginx | awk -F " " '{print $2}'`
+			 zsh: `ps -ef | grep '[n]ginx' | awk -F " " '{print $2}'`
 			
