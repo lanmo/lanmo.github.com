@@ -4,7 +4,7 @@
   <title><![CDATA[Peter 博客]]></title>
   <link href="http://lanmo.github.com/atom.xml" rel="self"/>
   <link href="http://lanmo.github.com/"/>
-  <updated>2014-10-24T22:52:22+08:00</updated>
+  <updated>2014-11-03T20:06:03+08:00</updated>
   <id>http://lanmo.github.com/</id>
   <author>
     <name><![CDATA[Peter]]></name>
@@ -50,6 +50,16 @@
 
 <pre><code>    1、公钥拷贝到某一台主机上`ssh-copy-id user@ip`
     2、sockets代理和隧道转发技术`ssh -f -N -g -D 8898 user@host`
+    3、配合上面语句使用保持心跳，`/etc/ssh/ssh_config`，这个文件加这两行:
+        TCPKeepAlive yes  
+        ServerAliveInterval 60
+</code></pre>
+
+<h4>5、AWK使用，这个命令平时很少使用，想到什么就写什么吧</h4>
+
+<pre><code>    1、获取进程PID: 
+        bash: `ps -ef | grep [n]ginx | awk -F " " '{print $2}'`
+         zsh: `ps -ef | grep '[n]ginx' | awk -F " " '{print $2}'`
 </code></pre>
 ]]></content>
   </entry>
