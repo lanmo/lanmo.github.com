@@ -4,7 +4,7 @@
   <title><![CDATA[Peter(杨楠) 博客]]></title>
   <link href="http://lanmo.github.com/atom.xml" rel="self"/>
   <link href="http://lanmo.github.com/"/>
-  <updated>2014-11-03T21:46:00+08:00</updated>
+  <updated>2015-01-29T22:05:44+08:00</updated>
   <id>http://lanmo.github.com/</id>
   <author>
     <name><![CDATA[Peter]]></name>
@@ -121,6 +121,26 @@
 <pre><code>    1、获取进程PID: 
         bash: `ps -ef | grep [n]ginx | awk -F " " '{print $2}'`
          zsh: `ps -ef | grep '[n]ginx' | awk -F " " '{print $2}'`
+</code></pre>
+
+<h4>6、sudo使用技巧</h4>
+
+<pre><code>    1、sudo !!
+    用法：想要作为root授权来运行一个命令，但是忘记使用“sudo”了?不要担心。我们可以使用”sudo !!”结合命令历史来执行你想要执行的命令。参数”!!“和”!-1“作用一样，都是允许用户作为root来执行我们刚才输入的命令，当然，以此类推，我们可以使用下面命令来执行倒数第二个命令：
+    `sudo !-2`
+    2、sudo -i
+      我们使用上述命令，可以切换到root状态下。
+      我们可以用下面命令格式，用一个指定的用户登陆shell：
+      `sudo -u username -i`
+    3、sudo 输出重定向
+      当我们使用sudo 进行输出重定向的时候，命令的第二部分无法获得授权
+      `sudo command &gt; outputfile`
+      解决方法：
+        使用’sudo tee’代替”&gt;”;
+        使用”sudo tee -a”代替”&gt;&gt;”;
+        `sudo command | sudo tee outputfile`
+    4、:w !sudo tee %
+        上述命令可用在vi/vim编辑器中。编辑文件后保存时不用担心没有修改的权限了
 </code></pre>
 ]]></content>
   </entry>
