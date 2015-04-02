@@ -4,7 +4,7 @@
   <title><![CDATA[Peter(杨楠) 博客]]></title>
   <link href="http://lanmo.github.com/atom.xml" rel="self"/>
   <link href="http://lanmo.github.com/"/>
-  <updated>2015-04-02T16:11:28+08:00</updated>
+  <updated>2015-04-02T16:59:22+08:00</updated>
   <id>http://lanmo.github.com/</id>
   <author>
     <name><![CDATA[Peter]]></name>
@@ -176,7 +176,7 @@
 <h2>7.判断两个链表是否相交  </h2>
 
 <p><strong>题目描述：</strong>给出两个单向链表的头指针（如下图所示），
-<img src="http://lanmo.github.com/home/nanyang/Downloads/title.jpg" alt="'题目'" />
+<img src="http://lanmo.github.com/images/custom_title.jpg" alt="'题目'" />
 比如h1、h2，判断这两个链表是否相交。这里为了简化问题，我们假设两个链表均不带环。</p>
 
 <p><strong>分析：</strong>如果两个没有环的链表相交于某一节点,则最后一个节点一定是共有的,我们只要判断两个链表的尾指针是否相等。相等，则链表相交,不相等，则链表不相交。</p>
