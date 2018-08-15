@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Linux下常用 - Peter(杨楠) 博客</title>
+  <meta name="author" content="Peter">
+
+  
+  <meta name="description" content="1、VIM插件、tmux安装及使用请参考地址 [wiki地址](https://github.com/lanmo/config/wiki) 2、Ack-grep 快速查找字符 安装： 1、ubuntu下安装`sudo apt-get install ack-grep` 2、mac下安装`sudo &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://lanmo.github.com/blog/2014/10/24/linuxxia-chang-yong">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Peter(杨楠) 博客" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Peter(杨楠) 博客</a></h1>
+  
+    <h2>千里之行，始于足下。 知人者智，自知者明。</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:lanmo.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Linux下常用</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-10-24T21:07:26+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:07 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h4>1、VIM插件、tmux安装及使用请参考地址</h4>
+
+<pre><code>     [wiki地址](https://github.com/lanmo/config/wiki)
+</code></pre>
+
+<h4>2、Ack-grep 快速查找字符</h4>
+
+<pre><code>    安装：  
+      1、ubuntu下安装`sudo apt-get install ack-grep`  
+      2、mac下安装`sudo brew install ack`  
+    使用：  
+      1、进入vim模式输入 :Ack 搜索字符  
+      2、在命令行下面是 ack-grep 搜索字符
+</code></pre>
+
+<h5>3、mac、ubuntu、centos安装zsh</h5>
+
+<pre><code>       mac:  brew install zsh
+    ubuntu: sudo apt-get install zsh
+    centos: sudo yum install zsh
+    下载ohmyzsh：
+        git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+        cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+        将zsh设置为默认的Shell：
+        chsh -s /bin/zsh
+        重启终端或者输入source .zshrc即可使用
+</code></pre>
+
+<h4>4、ssh相关</h4>
+
+<pre><code>    1、公钥拷贝到某一台主机上`ssh-copy-id user@ip`
+    2、sockets代理和隧道转发技术`ssh -f -N -g -D 8898 user@host`
+    3、配合上面语句使用保持心跳，`/etc/ssh/ssh_config`，这个文件加这两行:
+        TCPKeepAlive yes  
+        ServerAliveInterval 60
+</code></pre>
+
+<h4>5、AWK使用，这个命令平时很少使用，想到什么就写什么吧</h4>
+
+<pre><code>    1、获取进程PID: 
+        bash: `ps -ef | grep [n]ginx | awk -F " " '{print $2}'`
+         zsh: `ps -ef | grep '[n]ginx' | awk -F " " '{print $2}'`
+</code></pre>
+
+<h4>6、sudo使用技巧</h4>
+
+<pre><code>    1、sudo !!
+    用法：想要作为root授权来运行一个命令，但是忘记使用“sudo”了?不要担心。我们可以使用”sudo !!”结合命令历史来执行你想要执行的命令。参数”!!“和”!-1“作用一样，都是允许用户作为root来执行我们刚才输入的命令，当然，以此类推，我们可以使用下面命令来执行倒数第二个命令：
+    `sudo !-2`
+    2、sudo -i
+      我们使用上述命令，可以切换到root状态下。
+      我们可以用下面命令格式，用一个指定的用户登陆shell：
+      `sudo -u username -i`
+    3、sudo 输出重定向
+      当我们使用sudo 进行输出重定向的时候，命令的第二部分无法获得授权
+      `sudo command &gt; outputfile`
+      解决方法：
+        使用’sudo tee’代替”&gt;”;
+        使用”sudo tee -a”代替”&gt;&gt;”;
+        `sudo command | sudo tee outputfile`
+    4、:w !sudo tee %
+        上述命令可用在vi/vim编辑器中。编辑文件后保存时不用担心没有修改的权限了
+</code></pre>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Peter</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-10-24T21:07:26+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:07 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lanmo.github.com/blog/2014/10/24/linuxxia-chang-yong/" data-via="" data-counturl="http://lanmo.github.com/blog/2014/10/24/linuxxia-chang-yong/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/11/03/gitxiang-guan/" title="Next Post: git相关">git相关 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/04/02/lian-biao-cao-zuo/">链表操作</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/03/gitxiang-guan/">Git相关</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/linuxxia-chang-yong/">Linux下常用</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Peter -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".fancybox").fancybox({
+                openEffect  : 'none',
+                    closeEffect : 'none'
+                      
+         });
+      });
+</script>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
